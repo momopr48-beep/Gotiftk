@@ -1,1 +1,3 @@
-requests
+pyTelegramBotAPI
+google-genai
+
