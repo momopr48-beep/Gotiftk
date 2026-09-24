@@ -2,11 +2,10 @@ import os
 import telebot
 import google.generativeai as genai
 
-# توكن البوت ومفتاح چيميني جاهزة ومضبوطة
-TELEGRAM_BOT_TOKEN = "8996016776:AAETM1FLdxBuhF_djytNahSu7xJPu4ZhnmM"
-GEMINI_API_KEY = "AQ.Ab8RN6IQFfkxmTkyZUZy6xEkxJGtkJY9esnQTmeEbDF9qxAbcw"
+# قراءة التوكن والمفتاح من متغيرات النظام بأمان تام
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-# إعداد مكتبة چيميني
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
@@ -20,5 +19,5 @@ def handle_message(message):
     except Exception as e:
         bot.reply_to(message, f"صار خطأ يا غالي: {str(e)}")
 
-print("البوت يشتغل الآن...")
+print("البوت يعمل الآن...")
 bot.polling()
