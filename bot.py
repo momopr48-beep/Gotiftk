@@ -1,4 +1,3 @@
-
 import telebot
 from google import genai
 
